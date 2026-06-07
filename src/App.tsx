@@ -2444,7 +2444,7 @@ function App() {
             <div className="flex items-start justify-between gap-4">
               <div className="pr-6">
                 <h2 id="role-modal-title" className="text-2xl font-bold sm:text-3xl">
-                  {signupStep === 'select' ? 'Opret profil' : signupStep === 'jobseeker' ? 'Opret profil' : 'Opret virksomhedsprofil'}
+                  {signupStep === 'select' ? 'Opret profil' : signupStep === 'jobseeker' ? 'Opret jobsøgende profil' : 'Opret virksomhedsprofil'}
                 </h2>
                 {signupStep === 'select' && (
                   <p className="mt-2 text-sm leading-6 text-slate-600">
@@ -2565,7 +2565,7 @@ function App() {
                 </label>
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <button type="submit" className="w-full rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-slate-800 sm:w-auto">
-                    Opret profil
+                    Opret jobsøgende profil
                   </button>
                   <button type="button" onClick={() => setSignupStep('select')} className="w-full rounded-xl border border-slate-300 px-5 py-3 font-semibold text-slate-900 hover:bg-slate-50 sm:w-auto">
                     Tilbage
@@ -3327,14 +3327,6 @@ function DashboardHeader({
         <p className="mt-4 max-w-3xl leading-8 text-slate-600">{text}</p>
       </div>
 
-      <div className="mt-5">
-        <CompanyReplyButtons onSend={(message) => onSendReply(application.id, message)} />
-        {application.company_reply_message && (
-          <p className="mt-3 rounded-xl bg-emerald-50 p-3 text-sm leading-6 text-emerald-950">
-            Svar sendt: {application.company_reply_message}
-          </p>
-        )}
-      </div>
       <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-600 shadow-sm">
         CV deles kun med virksomheden, fordi kandidaten har sendt en ansøgning.
       </div>
@@ -3793,24 +3785,6 @@ function JobCard({
         </div>
       </div>
     </article>
-  )
-}
-
-function Detail({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex justify-between gap-4 border-b border-slate-100 pb-2">
-      <dt className="font-medium text-slate-500">{label}</dt>
-      <dd className="text-right font-semibold text-slate-800">{value}</dd>
-    </div>
-  )
-}
-
-function ContactDetail({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="grid gap-1 border-b border-emerald-100 pb-3 last:border-b-0 last:pb-0">
-      <dt className="font-medium text-emerald-900/70">{label}</dt>
-      <dd className="font-semibold text-slate-950">{value}</dd>
-    </div>
   )
 }
 
